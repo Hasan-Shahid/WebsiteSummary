@@ -1,12 +1,15 @@
 from langchain_groq import ChatGroq
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_core.prompts import PromptTemplate
+from dotenv import load_dotenv
 
 import streamlit as st
+import os
 
+my_key=os.getenv("groq_api_key")
+load_dotenv()
 
-
-chat = ChatGroq(groq_api_key="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",model_name="llama-3.3-70b-versatile")
+chat = ChatGroq(groq_api_key=my_key,model_name="llama-3.3-70b-versatile")
 
 
 st.title("Chat with any website")
